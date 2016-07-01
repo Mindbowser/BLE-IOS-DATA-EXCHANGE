@@ -21,6 +21,7 @@ struct Constants {
     }
     static let kNotify = 20
 }
+
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {

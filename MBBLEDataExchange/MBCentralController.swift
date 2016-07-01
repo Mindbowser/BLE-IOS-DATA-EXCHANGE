@@ -68,7 +68,11 @@ class MBCentralController: UIViewController,CBCentralManagerDelegate,CBPeriphera
     
     //Mark: CBPeripheralDelegate
     func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
-        
+        if (error != nil) {
+            print("error: \(error?.localizedDescription)")
+            return
+        }
+
         for service in peripheral.services! {
             peripheral.discoverCharacteristics([CBUUID(string:Constants.CharacteristicsKey.kTransferCharacteristicUUID)], forService: service)
         }
